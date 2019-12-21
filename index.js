@@ -1,10 +1,11 @@
+require('dotenv').config()
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 const fs = require('fs')
 const { COPYFILE_EXCL } = fs.constants
 
-const CAMERA_IMAGES_PATH = '/Volumes/Untitled/DCIM/100MSDCF'
-const DESTINATION_PATH = '/Users/tiki/Dropbox/sony-camera'
+const { CAMERA_IMAGES_PATH, DESTINATION_PATH } = process.env
+
 
 const maybeMakeFolder = path => {
   try {
